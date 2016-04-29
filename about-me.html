@@ -18,7 +18,13 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/style-responsive.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/jClocksGMT.css">
+		<style>
+			.htmleaf-container {
+				margin: auto;
+			}
+		</style>
 		<!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -46,14 +52,19 @@
 				<li><a class="ajax-link" href="index.html">Home</a></li>
 				<li><a class="ajax-link" href="projects.html">Projects</a></li>
 				<li><a class="ajax-link" href="conclusion.html">Paper</a></li>
-      <li><a class="ajax-link" href="about-me.html">About me</a></li>
+				<li><a class="ajax-link" href="about-me.html">About me</a></li>
 			</ul>
 
 		</div>
 
 		<!--Header-->
 		<header id="fullscreen">
-
+			<div class="htmleaf-container" style="float: left;">
+				<div class="htmleaf-content">
+					<div id="clock_hou"></div>
+					<div id="clock_korea"></div>
+				</div>
+			</div>
 			<div class="logo" id="full"><a class="ajax-link" href="index.html">willsms</a></div>
 
 			<div class="menu-index" id="button">
@@ -80,10 +91,8 @@
 				<div class="two-column">
 
 					<p>Hello, my name is willsms. I invite you to look at my website and thanks for liking it.
-						<br/><br/> 
-						I am a Java engineer, I like popping and fitness at ordinary times, during the holidays like to travel, and take a picture of the beautiful scenery	and beautiful moment, the most romantic is that I have you in my photo.
-						<br/><br/> 
-						I think you will like these.
+						<br/><br/> I am a Java engineer, I like popping and fitness at ordinary times, during the holidays like to travel, and take a picture of the beautiful scenery and beautiful moment, the most romantic is that I have you in my photo.
+						<br/><br/> I think you will like these.
 					</p>
 				</div>
 			</div>
@@ -172,17 +181,13 @@
 		<!--Footer-->
 
 		<footer id="ajax-footer">
-
 			<div class="footer-margin">
 				<div class="social-footer">
 					<a href="https://www.facebook.com/thomsooncom"><i class="fa fa-facebook"></i></a>
 					<a href="https://www.behance.net/TomaszMazurczak"><i class="fa fa-behance"></i></a>
-
 				</div>
 				<div class="copyright">© Copyright 2015 Thomsoon.com. All Rights Reserved.</div>
-
 			</div>
-
 		</footer>
 
 		<!--Scripts-->
@@ -198,7 +203,39 @@
 
 		<script src="js/script.js" type="text/javascript"></script>
 
+		<script src="js/jClocksGMT.js"></script>
+		<script src="js/jquery.rotate.js"></script>
 		<script>
+			$(document).ready(function() {
+				$('#clock_hou').jClocksGMT({
+					title: '美国华盛顿',
+					offset: '-6'
+				});
+				$('#clock_india').jClocksGMT({
+					title: '印度新德里',
+					offset: '+5.5',
+					dst: false,
+					skin: 2,
+					timeformat: 'HH:mm'
+				});
+				$('#clock_korea').jClocksGMT({
+					title: '中国北京',
+					offset: '+8',
+					skin: 3,
+					date: true
+				});
+				$('#clock_uk').jClocksGMT({
+					title: '格林威治',
+					date: true,
+					dateformat: 'YYYY/MM/DD',
+					skin: 4
+				});
+				$('#clock_tokyo').jClocksGMT({
+					title: '日本东京',
+					offset: '+9',
+					skin: 5
+				});
+			});
 			$('#button, #buttons').on('click', function() {
 				$(".opacity-nav").fadeToggle("slow", "linear");
 				// Animation complete.
